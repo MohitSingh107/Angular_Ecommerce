@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink = "/home">Home</a></li>
+        <li class="breadcrumb-item"><a>Shop</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cartoon Astronaut T-Shirts</li>
+      </ol>
+    </nav>
+  </div>
+  
+<div class="container product-container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="product-image-main mb-4">
+        <img [src]="selectedImage" alt="Cartoon Astronaut T-Shirt" class="img-fluid rounded">
+      </div>
+      <div class="product-image-thumbs d-flex justify-content-between" id="sm-preview">
+        <div *ngFor="let image of images" class="thumb" (click)="selectImage(image)">
+          <img [src]="image" alt="Thumbnail" class="img-fluid rounded" [class.active]="image === selectedImage">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <h1 class="product-title">Cartoon Astronaut T-Shirts</h1>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="product-brand">
+          <span class="text-muted">Brand: </span>
+          <a href="#" class="text-decoration-none">armani</a>
+        </div>
+        <div class="product-rating">
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star-half-alt text-warning"></i>
+          <span class="ms-2 text-muted">(25 reviews)</span>
+        </div>
+      </div>
+      <div class="mb-4">
+        <span class="product-price">$78</span>
+        <span class="product-original-price ms-2">$82</span>
+        <span class="product-discount ms-2">4% Off</span>
+      </div>
+      <p class="product-description mb-4">Experience comfort and style with our Cartoon Astronaut T-Shirts. Made from premium quality cotton, these shirts feature unique space-themed designs that are perfect for casual wear or as a standout piece in your wardrobe.</p>
+      <ul class="list-unstyled product-features mb-4">
+        <li><i class="fas fa-crown text-warning"></i> 1 Year AL Jazeera Brand Warranty</li>
+        <li><i class="fas fa-undo text-info"></i> 30 Day Return Policy</li>
+        <li><i class="fas fa-credit-card text-success"></i> Cash on Delivery available</li>
+      </ul>
+      <div class="mb-4">
+        <h5 class="mb-3">Color</h5>
+        <div class="product-color-filter">
+          <span style="background-color: #ff4136;"></span>
+          <span style="background-color: #2ecc40;"></span>
+          <span style="background-color: #0074d9;"></span>
+          <span style="background-color: #ff851b;"></span>
+          <span style="background-color: #7fdbff;"></span>
+          <span style="background-color: #b10dc9;"></span>
+        </div>
+      </div>
+      <div class="mb-4">
+        <h5 class="mb-3">Size</h5>
+        <div class="size-filter">
+          <a href="#" class="active">M</a>
+          <a href="#">L</a>
+          <a href="#">XL</a>
+          <a href="#">XXL</a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-4">
+        <div class="input-group quantity-input me-3">
+          <button class="btn btn-outline-secondary" type="button" (click)="decrementQuantity()">-</button>
+          <input type="text" class="form-control text-center" [value]="quantity">
+          <button class="btn btn-outline-secondary" type="button" (click)="incrementQuantity()">+</button>
+        </div>
+        <button class="btn btn-primary btn-add-to-cart flex-grow-1">Add to cart</button>
+      </div>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-secondary me-2" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        <button class="btn btn-outline-secondary me-2" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+        <div class="social-icons ms-auto">
+          <a href="#" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Share on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

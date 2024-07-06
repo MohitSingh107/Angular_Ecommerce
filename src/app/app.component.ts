@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ProductService } from './product-service/product.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [ProductService]
 })
 export class AppComponent {
-  title = 'ecom';
+
+  productsArray: any;
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.productService.getAllItems().subscribe(data => {
+      this.productsArray = data;
+    })
+  }
+
 }

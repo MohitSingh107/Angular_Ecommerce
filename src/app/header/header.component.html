@@ -1,0 +1,24 @@
+<div class="conatiner">
+<section id="header">
+    <a><img src="https://i.postimg.cc/x8ncvFjr/logo.png"></a>
+    <div>
+      <ul id="navbar">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a >Shop</a></li>
+        <li><a >Blog</a></li>
+        <li><a >About</a></li>
+        <li><a >Contact</a></li>
+        <li><a routerLink="/cart" id="lg-bag"><i class="fal fa-shopping-bag" [ngClass]="{'active': status, 'inactive-class': !status}"></i></a>
+          <span class="quantity">0</span>
+        </li>
+        <li><a href="#" id="close"><i class="far fa-times"></i></a></li>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a routerLink="/cart"><i class="fal fa-shopping-bag"></i>
+        <span class="quantity">0</span>
+      </a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+</div>
