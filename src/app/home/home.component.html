@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [counter]="updateCounter"></app-header>
 
 <section id="hero">
   <h4>Trade-in-fair</h4>
@@ -46,142 +46,18 @@
   <h2>Featured Products</h2>
   <p>Summer Collection New Modern Design</p>
   <div class="pro-container">
-    <div class="pro">
-      <img src="https://i.postimg.cc/kg9YYbTn/f1.jpg" alt="">
+    <div class="pro" *ngFor="let product of featuredProdutList; let i = index">
+      <img [src]="product.image" alt="" routerLink="/product-page/{{i}}">
       <div class="des">
-        <span>adidas</span>
-        <h5>Carton Astronault Tshirts</h5>
+        <span>{{product.brand}}</span>
+        <h5>{{product.name}}</h5>
         <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+          <i *ngFor="let star of getStars(product.rating)" class="fas fa-star"></i>
         </div>
-        <h4>$78</h4>
+        <h4>{{product.price}}</h4>
       </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+      <a type="button" (click)="addToCartItems(product.id)"><i class="fal fa-shopping-cart cart"></i></a>
     </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/2yhT2kvb/f2.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Carton Leave Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/VL9DtNm2/f3.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Rose Multicolor Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/vZ3hPS1z/f4.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Pink Flower Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/q7FLrhx6/f5.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Purple Flowering Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/L86BZByZ/f7.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Short Knicker </h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/zDxJ2f0H/f6.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>2 in 1 Double Routed</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/x8qcBrpP/n6.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Ash Short</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
   </div>
 </section>
 
@@ -195,142 +71,18 @@
   <h2>New Arrivals</h2>
   <p>Summer Collection New Modern Design</p>
   <div class="pro-container">
-    <div class="pro">
-      <img src="https://i.postimg.cc/hG1hqqK6/n1.jpg" alt="">
+    <div class="pro" *ngFor="let newArrival of newArrivalList">
+      <img [src]="newArrival.image" alt="">
       <div class="des">
-        <span>adidas</span>
-        <h5>Carton Astronault Tshirts</h5>
+        <span>{{newArrival.brand}}</span>
+        <h5>{{newArrival.name}}</h5>
         <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+          <i *ngFor="let star of getStars(newArrival.rating)" class="fas fa-star"></i>
         </div>
-        <h4>$78</h4>
+        <h4>{{newArrival.price}}</h4>
       </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+      <a type="button" (click)="addToCartItems(newArrival.id)"><i class="fal fa-shopping-cart cart"></i></a>
     </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/BZkSkvxt/n2.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Carton Leave Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/KYjcC3sk/n3.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Rose Multicolor Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/vHvQBtJx/n4.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Pink Flower Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/908J8S4q/n5.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Purple Flowering Tshirts</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/X7r8NsGQ/n7.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Short Knicker </h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/JhrH0hYM/n8.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>2 in 1 Double Routed</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
-    <div class="pro">
-      <img src="https://i.postimg.cc/2Sq4mytJ/f8.jpg" alt="">
-      <div class="des">
-        <span>adidas</span>
-        <h5>Ash Short</h5>
-        <div class="star">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <h4>$78</h4>
-      </div>
-      <a href=""><i class="fal fa-shopping-cart cart"></i></a>
-    </div>
-
   </div>
 </section>
 

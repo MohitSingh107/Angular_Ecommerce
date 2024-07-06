@@ -4,7 +4,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink = "/home">Home</a></li>
         <li class="breadcrumb-item"><a>Shop</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Cartoon Astronaut T-Shirts</li>
+        <li class="breadcrumb-item active" aria-current="page">{{itemDetail.name}}</li>
       </ol>
     </nav>
   </div>
@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="product-image-main mb-4">
-        <img [src]="selectedImage" alt="Cartoon Astronaut T-Shirt" class="img-fluid rounded">
+        <img [src]="itemDetail.image" alt="Cartoon Astronaut T-Shirt" class="img-fluid rounded">
       </div>
       <div class="product-image-thumbs d-flex justify-content-between" id="sm-preview">
         <div *ngFor="let image of images" class="thumb" (click)="selectImage(image)">
@@ -22,11 +22,11 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <h1 class="product-title">Cartoon Astronaut T-Shirts</h1>
+      <h1 class="product-title">{{itemDetail.name}}</h1>
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="product-brand">
           <span class="text-muted">Brand: </span>
-          <a href="#" class="text-decoration-none">armani</a>
+          <a href="#" class="text-decoration-none">{{itemDetail.brand}}</a>
         </div>
         <div class="product-rating">
           <i class="fas fa-star text-warning"></i>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="mb-4">
-        <span class="product-price">$78</span>
+        <span class="product-price">{{itemDetail.price}}</span>
         <span class="product-original-price ms-2">$82</span>
         <span class="product-discount ms-2">4% Off</span>
       </div>

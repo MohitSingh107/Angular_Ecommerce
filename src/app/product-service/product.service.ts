@@ -6,9 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllItems(){
-    return this.http.get("https://fakestoreapi.com/products");
+  getFeaturedProducts() {
+    return this.http.get("http://localhost:3000/products");
+  }
+
+  getNewArrivalProducts() {
+    return this.http.get("http://localhost:3000/newArrival");
+  }
+
+  getProductById(productId: number) {
+    return this.http.get("http://localhost:3000/items/" + productId);
   }
 }

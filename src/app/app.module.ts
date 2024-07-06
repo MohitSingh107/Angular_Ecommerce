@@ -13,7 +13,7 @@ import { HeaderComponent } from "./header/header.component";
 const routes: Route[] = [
     { path: 'home', component: HomeComponent },
     { path: 'cart', component: CartComponent },
-    { path: 'product-page', component: ProductPageComponent },
+    { path: 'product-page/:id', component: ProductPageComponent },
     { path: '', redirectTo: 'home', pathMatch: "full" }
 
 ];

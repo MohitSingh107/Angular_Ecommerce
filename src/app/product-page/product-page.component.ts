@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductModel } from '../model/product.model';
+import { ProductService } from '../product-service/product.service';
 
 @Component({
   selector: 'app-product-page',
@@ -6,6 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './product-page.component.css'
 })
 export class ProductPageComponent {
+
+  itemDetail!:ProductModel;
+
   images: string[] = [
     'https://evara-nextjs.vercel.app/assets/imgs/shop/product-2-1.jpg',
     'https://evara-nextjs.vercel.app/assets/imgs/shop/product-2-2.jpg',
@@ -14,9 +20,15 @@ export class ProductPageComponent {
   selectedImage: string = this.images[0];
   quantity: number = 1;
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private productService: ProductService) { }
 
-  ngOnInit(): void { }
+  ngOnInit() { 
+   const id = this.route.snapshot.paramMap.get('id');
+   console.log(id)
+   this.productService.getProductById(Number(id)).subscribe((data)=>{
+    this.itemDetail = data as ProductModel;
+   })
+   }
 
   selectImage(image: string): void {
     this.selectedImage = image;
