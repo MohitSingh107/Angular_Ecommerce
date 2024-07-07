@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../model/product.model';
 
 @Injectable({
   providedIn: 'root'

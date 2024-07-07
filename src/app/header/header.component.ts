@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ProductModel } from '../model/product.model';
-import { ProductService } from '../product-service/product.service';
 import { CartService } from '../cart-service/cart.service';
 
 @Component({
@@ -11,6 +10,9 @@ import { CartService } from '../cart-service/cart.service';
 export class HeaderComponent {
   @Input() status: boolean = false;
   @Input() counter: number = 0
+  cartItemList: ProductModel[] = [];
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(){
     this.getCartItems();
@@ -28,9 +30,5 @@ export class HeaderComponent {
       }
     });
   }
-
-  cartItemList: ProductModel[] = [];
-
-  constructor(private productService: ProductService, private cartService: CartService) { }
 
 }
