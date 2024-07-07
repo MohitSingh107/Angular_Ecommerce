@@ -28,14 +28,10 @@
           <span class="text-muted">Brand: </span>
           <a href="#" class="text-decoration-none">{{itemDetail.brand}}</a>
         </div>
-        <div class="product-rating">
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star-half-alt text-warning"></i>
-          <span class="ms-2 text-muted">(25 reviews)</span>
+        <div class="star">
+          <i *ngFor="let star of getStars(itemDetail.rating)" class="fas fa-star"></i>
         </div>
+          <span class="ms-2 text-muted">(25 reviews)</span>
       </div>
       <div class="mb-4">
         <span class="product-price">{{itemDetail.price}}</span>

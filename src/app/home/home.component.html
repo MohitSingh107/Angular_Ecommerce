@@ -47,7 +47,7 @@
   <p>Summer Collection New Modern Design</p>
   <div class="pro-container">
     <div class="pro" *ngFor="let product of featuredProdutList; let i = index">
-      <img [src]="product.image" alt="" routerLink="/product-page/{{i}}">
+      <img [src]="product.image" alt="" routerLink="/product-page/{{i+1}}">
       <div class="des">
         <span>{{product.brand}}</span>
         <h5>{{product.name}}</h5>
@@ -71,8 +71,8 @@
   <h2>New Arrivals</h2>
   <p>Summer Collection New Modern Design</p>
   <div class="pro-container">
-    <div class="pro" *ngFor="let newArrival of newArrivalList">
-      <img [src]="newArrival.image" alt="">
+    <div class="pro" *ngFor="let newArrival of newArrivalList;let i = index">
+      <img [src]="newArrival.image" alt="" routerLink="/product-page/{{i+9}}">
       <div class="des">
         <span>{{newArrival.brand}}</span>
         <h5>{{newArrival.name}}</h5>

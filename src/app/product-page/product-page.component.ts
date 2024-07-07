@@ -43,4 +43,12 @@ export class ProductPageComponent {
       this.quantity--;
     }
   }
+
+  getStars(rating: number): number[] {
+    const stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push(i);
+    }
+    return stars;
+  }
 }
